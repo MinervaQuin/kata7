@@ -9,15 +9,28 @@ public class HistogramBuilder {
     }
     
     
-    //it shall only show the flights with less/equal distance than de the filter kilometers asks for
-    public Histogram build(String type, String bin, String kilometers) {
-        Histogram histogram = new Histogram(type, bin, kilometers);
+    public Histogram build(String type, String bin, String filter) {
+        Histogram histogram = new Histogram(type, bin, filter);
         for (Flight flight : this.flights) {
-            if (Integer.parseInt(bin) >= flight.get(type) && flight.getDistance() <= Integer.parseInt(kilometers)){
+            
+            
+            try {
+                int var = Integer.parseInt(filter);
+                if (Integer.parseInt(bin) >= flight.get(type) && flight.getDistance() <= var){
                 
-                histogram.increment(flight.get(type));
+                    histogram.increment(flight.get(type));
                 
+                }   
+            } catch (NumberFormatException e) {
+                if (Integer.parseInt(bin) >= flight.get(type) && flight.getDayOfWeek().toString().equalsIgnoreCase(filter)){
+                
+                    histogram.increment(flight.get(type));
+                
+                }
             }
+            
+           
+            
         }
         return histogram;
         

@@ -6,10 +6,13 @@ import java.util.Map;
 import java.util.Set;
 
 public class Histogram<T> {
-    private Map<T, Integer> map;
-    private String bin;
-    private String field;
     private String type;
+    private String field;
+    private String bin;
+    private Map<T, Integer> map;
+    
+    
+    
 
     public Histogram() {
         this.map = new HashMap<T, Integer>();
@@ -21,10 +24,10 @@ public class Histogram<T> {
     }
 
     Histogram(String type, String bin, String field) {
-        this.type=type;
-        this.field=field;
+        this.map = new HashMap<T, Integer>();
         this.bin=bin;
-        this.map=new HashMap<T, Integer>();
+        this.field=field;
+        this.type=type;
     }
     
     
