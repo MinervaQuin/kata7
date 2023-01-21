@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.Set;
 
 public class Histogram<T> {
-    private String type;
-    private String field;
+    private String dimension;
+    private String filtro;
     private String bin;
     private Map<T, Integer> map;
     
@@ -19,15 +19,15 @@ public class Histogram<T> {
     }
 
     Histogram(String type, String bin) {
-        this.type=type;
+        this.dimension=type;
         this.bin=bin;
     }
 
     Histogram(String type, String bin, String field) {
         this.map = new HashMap<T, Integer>();
         this.bin=bin;
-        this.field=field;
-        this.type=type;
+        this.filtro=field;
+        this.dimension=type;
     }
     
     
