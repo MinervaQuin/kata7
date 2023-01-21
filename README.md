@@ -1,4 +1,4 @@
-# kata7
+# KATA 7
 
 Este programa se encarga de filtrar por distancia o por día de la semana, y delimita la cantidad de resultados expuestos según el parámetro bin.
 Por ejemplo, la búsqueda: 
