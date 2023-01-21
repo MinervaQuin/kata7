@@ -9,20 +9,20 @@ public class HistogramBuilder {
     }
     
     
-    public Histogram build(String type, String bin, String filter) {
-        Histogram histogram = new Histogram(type, bin, filter);
+    public Histogram build(String type, String bin, String measure) {
+        Histogram histogram = new Histogram(type, bin, measure);
         for (Flight flight : this.flights) {
             
             
             try {
-                int var = Integer.parseInt(filter);
+                int var = Integer.parseInt(measure);
                 if (Integer.parseInt(bin) >= flight.get(type) && flight.getDistance() <= var){
                 
                     histogram.increment(flight.get(type));
                 
                 }   
             } catch (NumberFormatException e) {
-                if (Integer.parseInt(bin) >= flight.get(type) && flight.getDayOfWeek().toString().equalsIgnoreCase(filter)){
+                if (Integer.parseInt(bin) >= flight.get(type) && flight.getDayOfWeek().toString().equalsIgnoreCase(measure)){
                 
                     histogram.increment(flight.get(type));
                 
